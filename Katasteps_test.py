@@ -14,3 +14,6 @@ def test_on_number_of_digits():
 
 def test_newlines():
     assert Katasteps.add("1,\n2")
+
+def test_on_numbers_bigger_than_1000():
+    assert Katasteps.add("1001,2") == 2
