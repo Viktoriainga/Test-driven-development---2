@@ -5,6 +5,7 @@ def add(number_str):
     value = 0
 
     for i in number_str.split(","):
+        i= i.strip().split("\n")    
         for n in i:
             value += int(n)
 

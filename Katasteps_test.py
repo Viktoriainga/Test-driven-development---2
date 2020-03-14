@@ -11,3 +11,6 @@ def test_on_two_digits():
 
 def test_on_number_of_digits():
     assert Katasteps.add("1,2,3,4,5") == 15
+
+def test_newlines():
+    assert Katasteps.add("1,\n2")
