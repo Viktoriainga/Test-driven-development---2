@@ -1,5 +1,11 @@
 def add(number_str):
     if number_str == "":
         return 0
-    
-    return int(number_str)
+
+    value = 0
+
+    for i in number_str.split(","):
+        for n in i:
+            value += int(n)
+
+    return value
