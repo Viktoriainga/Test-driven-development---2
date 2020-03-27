@@ -1,4 +1,4 @@
-import string
+
 class NegativesNotAllowed(Exception):
     pass
 
@@ -6,7 +6,6 @@ def add(number_str):
     if number_str == "":
         return 0
      
-
     value = 0
     negatives = ""
     new_delimeter = ","
@@ -17,22 +16,20 @@ def add(number_str):
 
     number_str = number_str.replace("\n", new_delimeter) #Replacing newline with the new delimeter which I split.
 
-    for n in number_str.split(new_delimeter):
+    for num in number_str.split(new_delimeter):
+        if num == "": #If given a double delimeter f.x. "1,/n2" will end as "1,,2"
+            num = 0
 
-        if n == "":
-            n = 0
+        if int(num) < 0:
+            negatives += str(num) + ","
 
-        if int(n) < 0:
-            negatives += str(n) + ","
+        if int(num) > 1000:
+            num = "0"
 
-        if int(n) > 1000:
-            n = "0"
-
-        
-        value += int(n)
+        value += int(num) #All allowed numbers added together.
 
     if negatives != "":
         raise NegativesNotAllowed("Negatives not allowed: {}".format(negatives[0:-1]))
+
     return value
 
-add("1,\n2")
