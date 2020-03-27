@@ -25,3 +25,7 @@ def testing_negatives():
     with pytest.raises(NegativesNotAllowed) as excinfo:
         Katasteps.add("-2,-3")
     assert "Negatives not allowed" in str(excinfo.value)
+
+def test_support_on_delimiter():
+    assert Katasteps.add("//X\n1X2") == 3
+    
